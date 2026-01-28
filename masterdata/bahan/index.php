@@ -20,9 +20,8 @@ while ($row = mysqli_fetch_assoc($query)) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Data Bahan | Kebab App</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Data Bahan | Kebab App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -41,8 +40,8 @@ while ($row = mysqli_fetch_assoc($query)) {
 
 <!-- SUMMARY -->
 <div class="summary-cards">
-    <div class="summary-card total">
-        <div class="summary-icon" style="background:#ffe1e8;color:#ff4d6d">
+    <div class="summary-card bahan">
+        <div class="summary-icon" style="background: #a2eba588;color:#4caf50">
             <i class="fas fa-boxes"></i>
         </div>
         <div>
@@ -52,7 +51,7 @@ while ($row = mysqli_fetch_assoc($query)) {
     </div>
 
     <div class="summary-card today">
-        <div class="summary-icon" style="background:#e8f5e9;color:#4caf50">
+        <div class="summary-icon" style="background:#e8f5e9;color:#ff9800">
             <i class="fas fa-exclamation-triangle"></i>
         </div>
         <div>

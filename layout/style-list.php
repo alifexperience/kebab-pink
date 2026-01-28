@@ -117,6 +117,7 @@ body {
     gap: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,.08);
     height: 45px;
+    
 }
 
 .search-container input {
@@ -167,11 +168,11 @@ body {
     font-size: 22px;
 }
 
-.summary-icon.total {
-    background: rgba(255,77,109,.15);
-    color: #ff4d6d;
-}
-
+.total { border-left: 5px solid #ff4d6d; }
+.bahan { border-left: 5px solid #4caf50; }
+.today { border-left: 5px solid #ff9800; }
+.transactions { border-left: 5px solid #2196f3; }
+.average { border-left: 5px solid #9c27b0; }
 /* ================= TABLE ================= */
 .table-container {
     background: #fff;
@@ -191,6 +192,7 @@ thead {
 }
 
 th, td {
+    text-align: center;
     padding: 15px;
     font-size: 14px;
 }
@@ -263,4 +265,18 @@ tbody tr:hover {
     }
 }
 
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; animation: fadeIn 0.3s ease; } 
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } 
+.modal-content { background: #fff; width: 90%; max-width: 600px; max-height: 80vh; border-radius: 16px; padding: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); animation: slideUp 0.4s ease; overflow-y: auto; position: relative; } 
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } } 
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; } 
+.modal-header h3 { color: #ff4d6d; font-size: 22px; margin: 0; } .close-btn { background: none; border: none; font-size: 24px; color: #888; cursor: pointer; transition: color 0.3s; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; } 
+.close-btn:hover { color: #ff4d6d; background: rgba(255, 77, 109, 0.1); }
+.resep-content { line-height: 1.6; } 
+.resep-content h4 { color: #333; margin: 20px 0 10px 0; font-size: 18px; } 
+.resep-content ul { margin-left: 20px; margin-bottom: 15px; } 
+.resep-content li { margin-bottom: 8px; padding-left: 5px; } 
+.modal-footer { margin-top: 25px; text-align: right; padding-top: 20px; border-top: 1px solid #eee; }
+.btn-close { padding: 10px 24px; background: #f5f5f5; color: #666; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s; } 
+.btn-close:hover { background: #e0e0e0; }
 </style>

@@ -58,7 +58,7 @@ $rataRata = $totalRows > 0 ? $totalPenjualan / $totalRows : 0;
     </div>
 
     <div class="summary-card today">
-        <div class="summary-icon" style="background:#e8f5e9;color:#4caf50">
+        <div class="summary-icon" style="background:#e8f5e9;color:#ff9800">
             <i class="fas fa-sun"></i>
         </div>
         <div>

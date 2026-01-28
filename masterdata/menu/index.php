@@ -2,9 +2,6 @@
 require_once "../../koneksi/koneksi.php";
 require_once "../../middleware/auth.php";
 
-/* =====================
-   AMBIL DATA MENU
-===================== */
 $q = mysqli_query($koneksi, "SELECT * FROM menu ORDER BY id_menu DESC");
 
 $menus = [];
@@ -21,11 +18,11 @@ $avgHarga = $totalMenu > 0 ? $totalHarga / $totalMenu : 0;
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Menu | Kebab App</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Menu | Kebab App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <?php include "../../layout/style-list.php";?>
 </head>
 
@@ -41,30 +38,29 @@ $avgHarga = $totalMenu > 0 ? $totalHarga / $totalMenu : 0;
 
 <!-- SUMMARY -->
 <div class="summary-cards">
-    <div class="summary-card">
-        <div class="summary-icon total">
+    <div class="summary-card total">
+        <div class="summary-icon" style="background:#ffe1e8;color: #ff4d6d">
             <i class="fas fa-hamburger"></i>
         </div>
-        <div class="summary-info">
+        <div>
             <h3 id="totalMenu"><?= $totalMenu ?></h3>
             <p>Total Menu</p>
         </div>
     </div>
 
-    <div class="summary-card">
-        <div class="summary-icon price">
+    <div class="summary-card transactions">
+        <div class="summary-icon" style="background:#e8f5e9;color: #0089d8">
             <i class="fas fa-tags"></i>
         </div>
-        <div class="summary-info">
+        <div>
             <h3>Rp <?= number_format($avgHarga,0,',','.') ?></h3>
             <p>Rata-rata Harga</p>
         </div>
     </div>
 </div>
-
 <!-- SEARCH & SORT -->
 <div class="search-filter-container">
-    <div class="search-box">
+    <div class="search-container">
         <i class="fas fa-search"></i>
         <input type="text" id="searchInput" placeholder="Cari menu...">
     </div>

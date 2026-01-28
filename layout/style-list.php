@@ -1,6 +1,4 @@
-<?php /* STYLE LIST – GABUNGAN */ ?>
 <style>
-
 /* ================= RESET & BASE ================= */
 * {
     margin: 0;
@@ -124,7 +122,7 @@ body {
     border: none;
     outline: none;
     font-size: 14px;
-    width: 200px;
+    width: 466px;
 }
 
 .filter-select {
@@ -270,7 +268,8 @@ tbody tr:hover {
 .modal-content { background: #fff; width: 90%; max-width: 600px; max-height: 80vh; border-radius: 16px; padding: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); animation: slideUp 0.4s ease; overflow-y: auto; position: relative; } 
 @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } } 
 .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; } 
-.modal-header h3 { color: #ff4d6d; font-size: 22px; margin: 0; } .close-btn { background: none; border: none; font-size: 24px; color: #888; cursor: pointer; transition: color 0.3s; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; } 
+.modal-header h3 { color: #ff4d6d; font-size: 22px; margin: 0; } 
+.close-btn { background: none; border: none; font-size: 24px; color: #888; cursor: pointer; transition: color 0.3s; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; } 
 .close-btn:hover { color: #ff4d6d; background: rgba(255, 77, 109, 0.1); }
 .resep-content { line-height: 1.6; } 
 .resep-content h4 { color: #333; margin: 20px 0 10px 0; font-size: 18px; } 

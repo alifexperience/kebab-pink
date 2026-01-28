@@ -19,24 +19,41 @@ if (isset($_POST['simpan'])) {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <title>Tambah Bahan</title>
+    <title>Tambah Bahan | Kebab App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "../../layout/style-input.php";?>
+
 </head>
+
 <body>
-    <div class="content">   
-        <h2>Tambah Bahan</h2>
+    <div class="content">
+        <div class="header">
+            <h2><i class="fas fa-carrot"></i> Tambah Bahan</h2>
+            <a href="index.php" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
 
         <form method="post">
-            <label>Nama Bahan</label><br>
-            <input type="text" name="nama" required><br><br>
+            <div class="form-group">
+                <label>Nama Bahan</label>
+                <input type="text" name="nama" placeholder="sosis..." required>
+            </div>
 
-            <label>Stok</label><br>
-            <input type="number" step="0.01" name="stok" required><br><br>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Stok</label>
+                    <input type="number" step="0.01" name="stok" placeholder="10..." required>
+                </div>
 
-            <label>Satuan</label><br>
-            <input type="text" name="satuan" placeholder="kg / pcs / ml" required><br><br>
+                <div class="form-group">
+                    <label>Satuan</label>
+                    <input type="text" name="satuan" placeholder="pcs..." required>
+                </div>
+            </div>
 
             <button type="submit" name="simpan">Simpan</button>
         </form>
@@ -44,4 +61,5 @@ if (isset($_POST['simpan'])) {
         <?php include "../../layout/choose.php"; ?>
     </div>
 </body>
+
 </html>

@@ -83,7 +83,6 @@ $avgHarga = $totalMenu > 0 ? $totalHarga / $totalMenu : 0;
     <th>No</th>
     <th>Nama Menu</th>
     <th>Harga</th>
-    <th>Kategori</th>
     <th>Resep</th>
     <th>Aksi</th>
 </tr>
@@ -98,11 +97,7 @@ $avgHarga = $totalMenu > 0 ? $totalHarga / $totalMenu : 0;
     <td><?= $no++ ?></td>
     <td><strong><?= htmlspecialchars($m['nama_menu']) ?></strong></td>
     <td class="price-tag">Rp <?= number_format($m['harga'],0,',','.') ?></td>
-    <td>
-        <span class="category-badge">
-            <?= htmlspecialchars($m['kategori'] ?? '-') ?>
-        </span>
-    </td>
+
     <td>
         <button class="btn btn-view view-resep-btn"
             data-id="<?= $m['id_menu'] ?>"

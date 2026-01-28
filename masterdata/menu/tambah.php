@@ -6,7 +6,6 @@ require_once "../../middleware/auth.php";
 $bahan = mysqli_query($koneksi, "SELECT * FROM bahan");
 
 if (isset($_POST['simpan'])) {
-
     $nama  = $_POST['nama'];
     $harga = $_POST['harga'];
 
@@ -17,13 +16,11 @@ if (isset($_POST['simpan'])) {
     ");
 
     if ($insertMenu) {
-
         $id_menu = mysqli_insert_id($koneksi);
 
         // 2️⃣ insert resep (menu_bahan)
         if (!empty($_POST['bahan'])) {
             foreach ($_POST['bahan'] as $id_bahan => $jumlah) {
-
                 if ($jumlah > 0) {
                     mysqli_query($koneksi, "
                         INSERT INTO menu_bahan (id_menu, id_bahan, jumlah)
@@ -35,7 +32,6 @@ if (isset($_POST['simpan'])) {
 
         header("Location: index.php");
         exit;
-
     } else {
         echo "Gagal menyimpan menu";
     }
@@ -44,72 +40,94 @@ if (isset($_POST['simpan'])) {
 
 <!DOCTYPE html>
 <html lang="id">
-<head>
-<meta charset="UTF-8">
-<title>Tambah Menu</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.4);
-}
-.modal-content {
-    background: #fff;
-    width: 90%;
-    max-width: 400px;
-    margin: 10% auto;
-    padding: 20px;
-}
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Tambah Menu | Kebab App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "../../layout/style-input.php"; ?>
+    <?php include "../../layout/style-modal.php"; ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="content">
-        <h2>Tambah Menu</h2>
+        <div class="header">
+            <h2><i class="fas fa-utensils"></i> Tambah Menu</h2>
+            <a href="index.php" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
 
         <form method="post">
+            <div class="form-group">
+                <label>Nama Menu</label>
+                <input type="text" name="nama" placeholder="Kebab Sapi Special..." required>
+            </div>
 
-            <label>Nama Menu</label><br>
-            <input type="text" name="nama" required><br><br>
+            <div class="form-group">
+                <label>Harga</label>
+                <input type="number" name="harga" placeholder="25000..." required>
+            </div>
 
-            <label>Harga</label><br>
-            <input type="number" name="harga" required><br><br>
-
-            <button type="button" onclick="openModal()">Atur Resep</button>
-            <br><br>
-
+            <button type="button" class="btn-resep" onclick="openModal()">
+                <i class="fas fa-list"></i> Resep
+            </button>
+            
             <!-- MODAL -->
-            <div class="modal" id="modalResep">
+            <div class="modal-resep" id="modalResep">
                 <div class="modal-content">
-                    <h3>Resep Menu</h3>
+                    <div class="modal-header">
+                        <h3><i class="fas fa-list"></i> Resep Menu</h3>
+                        <button class="close-btn" onclick="closeModal()">&times;</button>
+                    </div>
 
-                    <?php while ($b = mysqli_fetch_assoc($bahan)) : ?>
-                        <label><?= $b['nama_bahan'] ?> (<?= $b['satuan'] ?>)</label><br>
-                        <input type="number" step="0.01" name="bahan[<?= $b['id_bahan'] ?>]" placeholder="Takaran">
-                        <br><br>
-                    <?php endwhile; ?>
+                    <div class="modal-body">
+                        <?php 
+                        mysqli_data_seek($bahan, 0);
+                        while ($b = mysqli_fetch_assoc($bahan)) : ?>
+                            <div class="bahan-item">
+                                <div class="bahan-info">
+                                    <div class="bahan-nama"><?= $b['nama_bahan'] ?></div>
+                                    <div class="bahan-satuan">Stok: <?= $b['stok'] ?> <?= $b['satuan'] ?></div>
+                                </div>
+                                <input type="number" 
+                                    name="bahan[<?= $b['id_bahan'] ?>]" 
+                                    class="bahan-input" 
+                                    placeholder="0">
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
 
-                    <button type="button" onclick="closeModal()">Selesai</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-modal btn-secondary" onclick="closeModal()">Tutup</button>
+                        <button type="button" class="btn-modal btn-primary" onclick="closeModal()">Simpan</button>
+                    </div>
                 </div>
             </div>
 
-            <br>
-            <button type="submit" name="simpan">Simpan Menu</button>
-
+            <button type="submit" name="simpan">Simpan</button>
         </form>
-                       
-        <script>
-        function openModal() {
-            document.getElementById('modalResep').style.display = 'block';
-        }
-        function closeModal() {
-            document.getElementById('modalResep').style.display = 'none';
-        }
-        </script>
 
         <?php include "../../layout/choose.php"; ?>
     </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modalResep').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('modalResep').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalResep');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>

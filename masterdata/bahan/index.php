@@ -65,7 +65,7 @@ while ($row = mysqli_fetch_assoc($query)) {
 <div class="search-filter-container">
     <div class="search-container">
         <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="Cari ID Bahan...">
+        <input type="text" id="searchInput" placeholder="Cari Bahan...">
     </div>
 
     <select class="filter-select" id="filterStock">

@@ -103,7 +103,7 @@ body {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .search-container {
@@ -113,6 +113,7 @@ body {
     border-radius: 10px;
     padding: 8px 14px;
     gap: 8px;
+    width: 100%;
     box-shadow: 0 4px 12px rgba(0,0,0,.08);
     height: 45px;
     
@@ -122,7 +123,6 @@ body {
     border: none;
     outline: none;
     font-size: 14px;
-    width: 466px;
 }
 
 .filter-select {

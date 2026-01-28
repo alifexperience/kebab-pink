@@ -92,7 +92,7 @@ $rataRata = $totalRows > 0 ? $totalPenjualan / $totalRows : 0;
 <div class="search-filter-container">
     <div class="search-container">
         <i class="fas fa-search"></i>
-        <input type="text" id="searchInput" placeholder="Cari ID Transaksi...">
+        <input type="text" id="searchInput" placeholder="Cari Transaksi...">
     </div>
 </div>
 

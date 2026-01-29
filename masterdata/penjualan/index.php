@@ -123,7 +123,6 @@ $class = $status=='Lunas'?'status-paid':($status=='Pending'?'status-pending':'st
     <td class="amount">Rp <?= number_format($p['total'],0,',','.') ?></td>
     <td class="action-cell">
         <a href="detail.php?id=<?= $p['id_penjualan'] ?>" class="btn btn-view">Detail</a>
-        <a href="cetak.php?id=<?= $p['id_penjualan'] ?>" class="btn btn-print" target="_blank">Cetak</a>
         <a href="hapus.php?id=<?= $p['id_penjualan'] ?>" class="btn btn-delete delete-btn"
            data-id="<?= $transId ?>">Hapus</a>
     </td>

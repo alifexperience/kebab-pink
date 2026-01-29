@@ -98,6 +98,10 @@ body {
     border: 1px solid rgba(32,255,99,.6);
 }
 
+td:nth-child(2) {
+  text-align: start;
+}
+
 /* ================= SEARCH & FILTER ================= */
 .search-filter-container {
     display: flex;
@@ -222,6 +226,7 @@ tbody tr:hover {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* ================= PAGINATION ================= */

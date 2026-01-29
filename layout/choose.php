@@ -178,7 +178,7 @@ body{
     <!-- LOGO -->
     <div class="logo" id="toggleBtn">
         <i class="fa-solid fa-kitchen-set"></i>
-        <span>KEBAB APP</span>
+        <span>KEBAB PINK</span>
     </div>
 
     <!-- MENU -->

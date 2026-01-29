@@ -30,7 +30,6 @@
             padding: 25px;
             margin-bottom: 25px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-left: 5px solid #ff4d6d;
             display: flex;
             align-items: center;
             justify-content: space-between;

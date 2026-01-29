@@ -104,7 +104,6 @@ $rataRata = $totalRows > 0 ? $totalPenjualan / $totalRows : 0;
     <th>No</th>
     <th>ID Transaksi</th>
     <th>Tanggal</th>
-    <th>Status</th>
     <th>Total</th>
     <th>Aksi</th>
 </tr>
@@ -119,7 +118,6 @@ $class = $status=='Lunas'?'status-paid':($status=='Pending'?'status-pending':'st
     <td><?= $no++ ?></td>
     <td><b><?= $transId ?></b></td>
     <td><?= date('d M Y H:i',strtotime($p['tanggal'])) ?></td>
-    <td><span class="status-badge <?= $class ?>"><?= $status ?></span></td>
     <td class="amount">Rp <?= number_format($p['total'],0,',','.') ?></td>
     <td class="action-cell">
         <a href="detail.php?id=<?= $p['id_penjualan'] ?>" class="btn btn-view">Detail</a>
